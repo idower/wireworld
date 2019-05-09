@@ -27,7 +27,7 @@ public class Manager {
         updateCanvas();
     }
 
-    public void togglePlay(){
+    public void togglePlay() {
         if (pt.isRunning()) pt.stop();
         else pt.start();
     }

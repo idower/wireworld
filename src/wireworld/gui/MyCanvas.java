@@ -19,9 +19,11 @@ public class MyCanvas extends JPanel {
     int lastx = 0, lasty = 0;
     int scale = 4;
     boolean mousePressed = false;
+    private MoveGridThread mgt;
 
     public MyCanvas() {
         super();
+        mgt = new MoveGridThread(this);
         addMouseWheelListener(new MouseWheelListener() {
             @Override
             public void mouseWheelMoved(MouseWheelEvent mouseWheelEvent) {
@@ -35,18 +37,24 @@ public class MyCanvas extends JPanel {
             @Override
             public void mousePressed(MouseEvent mouseEvent) {
                 super.mousePressed(mouseEvent);
+                mgt.start();
+                /*
                 mousePressed = true;
                 lastx = mouseEvent.getX();
                 lasty = mouseEvent.getY();
+                 */
             }
 
             @Override
             public void mouseReleased(MouseEvent mouseEvent) {
                 super.mouseReleased(mouseEvent);
+                mgt.stop();
+                /*
                 mousePressed = false;
                 offsetX -= lastx - mouseEvent.getX();
                 offsetY -= lasty - mouseEvent.getY();
                 update();
+                 */
             }
         });
         setDoubleBuffered(true);
@@ -100,4 +108,19 @@ public class MyCanvas extends JPanel {
         scale = s;
     }
 
+    public void setOffsetX(int x ) {
+        offsetX = x;
+    }
+
+    public void setOffsetY(int y) {
+        offsetY = y;
+    }
+
+    public int getOffsetX() {
+        return offsetX;
+    }
+
+    public int getOffsetY() {
+        return offsetY;
+    }
 }
