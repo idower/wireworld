@@ -8,13 +8,13 @@ public class MyLabel extends  JLabel{
     public MyLabel(String text) {
         super(text);
         setForeground(Const.colorFont);
-        setFont(new Font("Droid Sans", Font.BOLD, 14));
+        setFont(new Font("droidsans", Font.BOLD, 14));
     }
 
     public MyLabel(String text, int fontSize) {
         super(text);
         setForeground(Const.colorFont);
-        setFont(new Font("Droid Sans", Font.BOLD, fontSize));
+        setFont(new Font("droidsans", Font.BOLD, fontSize));
     }
 
 }

@@ -7,7 +7,7 @@ public class MyTextField extends JTextField {
 
     public MyTextField() {
         super();
-        setFont(new Font("Droid Sans", Font.BOLD, 12));
+        setFont(new Font("droidsans", Font.BOLD, 12));
         //setBorderPainted(false);
         setBackground(Const.color2);
         setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Const.colorShadow));

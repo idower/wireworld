@@ -22,10 +22,10 @@ public class MoveGridThread implements Runnable {
             try {
                 Thread.sleep(sleepTime);
                 mp2 = c.getMousePosition();
-                if( mp != mp2) {
+                if (mp.x != mp2.x || mp.y != mp2.y) {
                     System.out.println("Mouse moved");
-                    c.setOffsetX( c.getOffsetX() - mp.x + mp2.x);
-                    c.setOffsetY( c.getOffsetY() - mp.y + mp2.y );
+                    c.setOffsetX(c.getOffsetX() - mp.x + mp2.x);
+                    c.setOffsetY(c.getOffsetY() - mp.y + mp2.y);
                     c.update();
                 }
                 mp = mp2;

@@ -9,7 +9,7 @@ public class MyButton extends JButton {
 
     public MyButton(String text) {
         super(text);
-        setFont(new Font("Droid Sans", Font.BOLD, 12));
+        setFont(new Font("droidsans", Font.BOLD, 12));
         //setBorderPainted(false);
         setFocusPainted(false);
         setBackground(Const.color2);

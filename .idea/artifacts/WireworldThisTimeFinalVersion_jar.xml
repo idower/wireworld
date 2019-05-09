@@ -3,7 +3,6 @@
     <output-path>$PROJECT_DIR$/out/artifacts/WireworldThisTimeFinalVersion_jar</output-path>
     <root id="archive" name="WireworldThisTimeFinalVersion.jar">
       <element id="module-output" name="WireworldThisTimeFinalVersion" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/material-ui-swing(1).jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

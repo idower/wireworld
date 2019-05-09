@@ -65,7 +65,7 @@ public class MyCanvas extends JPanel {
     }
 
     public void update(Grid grid) {
-        if (grid.getWidth() <= 0 | grid.getHeight() <= 0) return;
+        if (grid == null || grid.getWidth() <= 0 || grid.getHeight() <= 0) return;
         currentGrid = grid;
         BufferedImage img = new BufferedImage(grid.getWidth(), grid.getHeight(), BufferedImage.TYPE_INT_RGB);
         int p;
