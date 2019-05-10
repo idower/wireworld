@@ -7,17 +7,16 @@ public class PlayThread implements Runnable {
     private boolean running = false;
     private Thread thread;
     private int sleepTime = 17;
-    private Manager m;
 
-    public PlayThread(Manager m) {
-        this.m = m;
+    public PlayThread() {
+
     }
 
     public void run() {
         while (running) {
             try {
                 Thread.sleep(sleepTime);
-                m.nextGen();
+                Manager.getInstance().nextGen();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

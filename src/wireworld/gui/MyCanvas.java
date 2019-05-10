@@ -20,9 +20,12 @@ public class MyCanvas extends JPanel {
     int scale = 4;
     boolean mousePressed = false;
     private MoveGridThread mgt;
+    private int mouseMode = 0;
+    private int whatToDraw = 0;
 
     public MyCanvas() {
         super();
+        setLayout(null);
         mgt = new MoveGridThread(this);
         addMouseWheelListener(new MouseWheelListener() {
             @Override
@@ -37,25 +40,37 @@ public class MyCanvas extends JPanel {
             @Override
             public void mousePressed(MouseEvent mouseEvent) {
                 super.mousePressed(mouseEvent);
-                mgt.start();
-                /*
-                mousePressed = true;
-                lastx = mouseEvent.getX();
-                lasty = mouseEvent.getY();
-                 */
+                if (mouseMode == 0) {
+                    mgt.start();
+                }
             }
 
             @Override
             public void mouseReleased(MouseEvent mouseEvent) {
                 super.mouseReleased(mouseEvent);
-                mgt.stop();
-                /*
-                mousePressed = false;
-                offsetX -= lastx - mouseEvent.getX();
-                offsetY -= lasty - mouseEvent.getY();
-                update();
-                 */
+                if (mouseMode == 0) {
+                    mgt.stop();
+                }
             }
+
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                super.mouseClicked(mouseEvent);
+                if (mouseMode == 0) {
+                    return;
+                }
+                int x = mouseEvent.getX() - (getWidth() / 2 - currentFrame.getWidth() * scale / 2 + offsetX);
+                if (x < 0) return;
+                x /= scale;
+                if (x >= currentGrid.getWidth()) return;
+                int y = mouseEvent.getY() - (getHeight() / 2 - currentFrame.getHeight() * scale / 2 + offsetY);
+                if (y < 0) return;
+                y /= scale;
+                if (y >= currentGrid.getHeight()) return;
+                currentGrid.changeCell(x, y, whatToDraw);
+                update();
+            }
+
         });
         setDoubleBuffered(true);
     }
@@ -108,7 +123,7 @@ public class MyCanvas extends JPanel {
         scale = s;
     }
 
-    public void setOffsetX(int x ) {
+    public void setOffsetX(int x) {
         offsetX = x;
     }
 
@@ -122,5 +137,21 @@ public class MyCanvas extends JPanel {
 
     public int getOffsetY() {
         return offsetY;
+    }
+
+    public void setMouseMode(int i) {
+        mouseMode = i;
+    }
+
+    public void setWhatToDraw(int i) {
+        whatToDraw = i;
+    }
+
+    public int getMouseMode() {
+        return mouseMode;
+    }
+
+    public int getWhatToDraw() {
+        return whatToDraw;
     }
 }

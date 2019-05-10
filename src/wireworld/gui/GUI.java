@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -58,7 +60,7 @@ public class GUI extends JFrame {
     private MyButton btnPanelSaveConfirm;
     private MyButton btnPanelSaveCancel;
 
-    public GUI(Manager m) {
+    public GUI() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(720, 480));
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -68,7 +70,7 @@ public class GUI extends JFrame {
         // MyCanvas(JPanel) - logic is drawn there
         canvas = new MyCanvas();
         canvas.setPreferredSize(new Dimension(300, 300));
-        canvas.setBackground(Const.color2);
+        canvas.setBackground(Const.color3);
         add(canvas);
 
         // panelRight
@@ -128,6 +130,13 @@ public class GUI extends JFrame {
         panelMain2.add(btnPanelMainResize);
         btnPanelMainClear = new MyButton("Clear");
         btnPanelMainClear.setPreferredSize(new Dimension(85, 25));
+        btnPanelMainClear.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                super.mouseClicked(mouseEvent);
+                Manager.getInstance().clear();
+            }
+        });
         panelMain2.add(btnPanelMainClear);
         panelMain21 = new JPanel();
         panelMain21.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 8));
@@ -138,24 +147,80 @@ public class GUI extends JFrame {
         labelPanelMain211.setIcon(createImage(Color.WHITE, new Dimension(24, 24)));
         labelPanelMain211.setHorizontalTextPosition(JLabel.CENTER);
         labelPanelMain211.setVerticalTextPosition(JLabel.BOTTOM);
+        labelPanelMain211.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                super.mouseClicked(mouseEvent);
+                labelsSetDefaultIcons();
+                if (canvas.getMouseMode() == 1 && canvas.getWhatToDraw() == 0) {
+                    canvas.setMouseMode(0);
+                } else {
+                    canvas.setMouseMode(1);
+                    canvas.setWhatToDraw(0);
+                    labelPanelMain211.setIcon(createImageActive(Color.WHITE, new Dimension(24, 24)));
+                }
+            }
+        });
         panelMain21.add(labelPanelMain211);
         labelPanelMain212 = new MyLabel("Head", 9);
         labelPanelMain212.setPreferredSize(new Dimension(50, 40));
         labelPanelMain212.setIcon(createImage(Color.ORANGE, new Dimension(24, 24)));
         labelPanelMain212.setHorizontalTextPosition(JLabel.CENTER);
         labelPanelMain212.setVerticalTextPosition(JLabel.BOTTOM);
+        labelPanelMain212.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                super.mouseClicked(mouseEvent);
+                labelsSetDefaultIcons();
+                if (canvas.getMouseMode() == 1 && canvas.getWhatToDraw() == 1) {
+                    canvas.setMouseMode(0);
+                } else {
+                    canvas.setMouseMode(1);
+                    canvas.setWhatToDraw(1);
+                    labelPanelMain212.setIcon(createImageActive(Color.ORANGE, new Dimension(24, 24)));
+                }
+            }
+        });
         panelMain21.add(labelPanelMain212);
         labelPanelMain213 = new MyLabel("Tail", 9);
         labelPanelMain213.setPreferredSize(new Dimension(50, 40));
         labelPanelMain213.setIcon(createImage(Color.BLUE, new Dimension(24, 24)));
         labelPanelMain213.setHorizontalTextPosition(JLabel.CENTER);
         labelPanelMain213.setVerticalTextPosition(JLabel.BOTTOM);
+        labelPanelMain213.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                super.mouseClicked(mouseEvent);
+                labelsSetDefaultIcons();
+                if (canvas.getMouseMode() == 1 && canvas.getWhatToDraw() == 2) {
+                    canvas.setMouseMode(0);
+                } else {
+                    canvas.setMouseMode(1);
+                    canvas.setWhatToDraw(2);
+                    labelPanelMain213.setIcon(createImageActive(Color.BLUE, new Dimension(24, 24)));
+                }
+            }
+        });
         panelMain21.add(labelPanelMain213);
         labelPanelMain214 = new MyLabel("Conductor", 9);
         labelPanelMain214.setPreferredSize(new Dimension(50, 40));
         labelPanelMain214.setIcon(createImage(Color.BLACK, new Dimension(24, 24)));
         labelPanelMain214.setHorizontalTextPosition(JLabel.CENTER);
         labelPanelMain214.setVerticalTextPosition(JLabel.BOTTOM);
+        labelPanelMain214.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                super.mouseClicked(mouseEvent);
+                labelsSetDefaultIcons();
+                if (canvas.getMouseMode() == 1 && canvas.getWhatToDraw() == 3) {
+                    canvas.setMouseMode(0);
+                } else {
+                    canvas.setMouseMode(1);
+                    canvas.setWhatToDraw(3);
+                    labelPanelMain214.setIcon(createImageActive(Color.BLACK, new Dimension(24, 24)));
+                }
+            }
+        });
         panelMain21.add(labelPanelMain214);
 
 
@@ -171,15 +236,15 @@ public class GUI extends JFrame {
         panelMain3.add(labelPanelMain3);
         btnPanelMainPrevGen = new MyButton("Prev");
         btnPanelMainPrevGen.setPreferredSize(new Dimension(65, 25));
-        btnPanelMainPrevGen.addActionListener(actionEvent -> m.prevGen());
+        btnPanelMainPrevGen.addActionListener(actionEvent -> Manager.getInstance().prevGen());
         panelMain3.add(btnPanelMainPrevGen);
         btnPanelMainPlayGen = new MyButton("Play/Pause");
         btnPanelMainPlayGen.setPreferredSize(new Dimension(100, 25));
-        btnPanelMainPlayGen.addActionListener(actionEvent -> m.togglePlay());
+        btnPanelMainPlayGen.addActionListener(actionEvent -> Manager.getInstance().togglePlay());
         panelMain3.add(btnPanelMainPlayGen);
         btnPanelMainNextGen = new MyButton("Next");
         btnPanelMainNextGen.setPreferredSize(new Dimension(65, 25));
-        btnPanelMainNextGen.addActionListener(actionEvent -> m.nextGen());
+        btnPanelMainNextGen.addActionListener(actionEvent -> Manager.getInstance().nextGen());
         panelMain3.add(btnPanelMainNextGen);
 
 
@@ -198,7 +263,7 @@ public class GUI extends JFrame {
         panelLoad.add(txtPanelLoadPath);
         btnPanelLoadConfirm = new MyButton("Load");
         btnPanelLoadConfirm.setBounds(45, 95, 100, 25);
-        btnPanelLoadConfirm.addActionListener(actionEvent -> m.loadGrid(txtPanelLoadPath.getText()));
+        btnPanelLoadConfirm.addActionListener(actionEvent -> Manager.getInstance().loadGrid(txtPanelLoadPath.getText()));
         panelLoad.add(btnPanelLoadConfirm);
         btnPanelLoadCancel = new MyButton("Cancel");
         btnPanelLoadCancel.setBounds(155, 95, 100, 25);
@@ -234,6 +299,7 @@ public class GUI extends JFrame {
         panelNew.add(txtPanelNewHeight);
         btnPanelNewConfirm = new MyButton("Confirm");
         btnPanelNewConfirm.setBounds(45, 95, 100, 25);
+        btnPanelNewConfirm.addActionListener(actionEvent -> Manager.getInstance().newGrid(txtPanelNewWidth.getText(), txtPanelNewHeight.getText()));
         panelNew.add(btnPanelNewConfirm);
         btnPanelNewCancel = new MyButton("Cancel");
         btnPanelNewCancel.setBounds(155, 95, 100, 25);
@@ -246,6 +312,7 @@ public class GUI extends JFrame {
             panelMain.setVisible(false);
             panelNew.setVisible(true);
         });
+
 
         // panelSave
         panelSave = new JPanel();
@@ -262,7 +329,7 @@ public class GUI extends JFrame {
         panelSave.add(txtPanelSavePath);
         btnPanelSaveConfirm = new MyButton("Save");
         btnPanelSaveConfirm.setBounds(45, 95, 100, 25);
-        btnPanelSaveConfirm.addActionListener(actionEvent -> m.saveGrid(txtPanelSavePath.getText()));
+        btnPanelSaveConfirm.addActionListener(actionEvent -> Manager.getInstance().saveGrid(txtPanelSavePath.getText()));
         panelSave.add(btnPanelSaveConfirm);
         btnPanelSaveCancel = new MyButton("Cancel");
         btnPanelSaveCancel.setBounds(155, 95, 100, 25);
@@ -279,14 +346,19 @@ public class GUI extends JFrame {
         // resize components on window resize
         addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent componentEvent) {
-                canvas.setBounds(0, 0, getWidth() - 300, getHeight());
-                panelRight.setBounds(getWidth() - 300, 0, 300, getHeight());
+                resizeGUI();
             }
         });
 
-
         repaint();
         setVisible(true);
+    }
+
+    private void labelsSetDefaultIcons() {
+        labelPanelMain211.setIcon(createImage(Color.WHITE, new Dimension(24, 24)));
+        labelPanelMain212.setIcon(createImage(Color.ORANGE, new Dimension(24, 24)));
+        labelPanelMain213.setIcon(createImage(Color.BLUE, new Dimension(24, 24)));
+        labelPanelMain214.setIcon(createImage(Color.BLACK, new Dimension(24, 24)));
     }
 
     public static Icon createImage(Color c, Dimension size) {
@@ -297,7 +369,26 @@ public class GUI extends JFrame {
         return new ImageIcon(img);
     }
 
+    public static Icon createImageActive(Color c, Dimension size) {
+        BufferedImage img = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_ARGB);
+        Graphics g = img.createGraphics();
+        g.setColor(Color.RED);
+        g.fillRect(0, 0, size.width, size.height);
+        g.setColor(c);
+        g.fillRect(2, 2, size.width - 4, size.height - 4);
+        return new ImageIcon(img);
+    }
+
     public void updateCanvas(Grid g) {
         canvas.update(g);
+    }
+
+    public MyCanvas getCanvas() {
+        return canvas;
+    }
+
+    public void resizeGUI() {
+        canvas.setBounds(0, 0, getContentPane().getWidth() - 300, getContentPane().getHeight());
+        panelRight.setBounds(getContentPane().getWidth() - 300, 0, 300, getContentPane().getHeight());
     }
 }

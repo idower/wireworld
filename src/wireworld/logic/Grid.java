@@ -1,5 +1,7 @@
 package wireworld.logic;
 
+import wireworld.Manager;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -13,15 +15,6 @@ public class Grid {
         this.width = width;
         this.height = height;
         cells = new int[width][height];
-        for (int x = 0; x < width; x++)
-            for (int y = 0; y < height; y++) {
-                if (y == 0 || y == 2) cells[x][y] = 0;
-                else if (x == 1) cells[x][y] = 2;
-                else if (x == 2) cells[x][y] = 1;
-                else cells[x][y] = 3;
-            }
-
-
     }
 
     public Grid(String path) {
@@ -38,9 +31,9 @@ public class Grid {
                 for (int x = 0; x < width; x++)
                     cells[x][y] = in.nextInt();
             isGood = true;
+            Manager.getInstance().notify("Succesfuly loaded file " + path, 5);
         } catch (FileNotFoundException e) {
-            System.out.println("Couldn't find file " + path);
-            //e.printStackTrace();
+            Manager.getInstance().notify("Couldn't find file " + path, 5);
         }
     }
 
@@ -49,15 +42,16 @@ public class Grid {
         try {
             writer = new BufferedWriter(new FileWriter(path));
             writer.write(width + " " + height);
-            for(int y = 0; y < height; y++) {
+            for (int y = 0; y < height; y++) {
                 writer.append('\n');
-                for( int x = 0; x < width; x++) {
+                for (int x = 0; x < width; x++) {
                     writer.append(String.valueOf(cells[x][y])).append(" ");
                 }
             }
             writer.close();
+            Manager.getInstance().notify("Succesfuly saved file " + path, 5);
         } catch (IOException e) {
-            e.printStackTrace();
+            Manager.getInstance().notify("Couldn't save file " + path, 5);
         }
     }
 
@@ -111,6 +105,10 @@ public class Grid {
 
     public boolean isGood() {
         return isGood;
+    }
+
+    public void changeCell(int x, int y, int state) {
+        cells[x][y] = state;
     }
 
 }
