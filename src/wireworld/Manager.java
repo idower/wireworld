@@ -34,8 +34,10 @@ public class Manager {
         grids = new GridList();
         pt = new PlayThread();
         mnt = new MyNotificationThread(gui);
+        /*
         grids.add(new Grid("/home/marcin/Downloads/test.txt"));
         updateCanvas();
+        */
     }
 
     public void prevGen() {
