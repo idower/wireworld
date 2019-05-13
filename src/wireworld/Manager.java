@@ -1,12 +1,11 @@
 package wireworld;
 
 import wireworld.gui.GUI;
-import wireworld.gui.MyLabel;
 import wireworld.gui.MyNotification;
-import wireworld.gui.MyNotificationThread;
+import wireworld.threads.MyNotificationThread;
 import wireworld.logic.Grid;
 import wireworld.logic.GridList;
-import wireworld.logic.PlayThread;
+import wireworld.threads.PlayThread;
 
 public class Manager {
 
@@ -34,10 +33,11 @@ public class Manager {
         grids = new GridList();
         pt = new PlayThread();
         mnt = new MyNotificationThread(gui);
-        /*
+
         grids.add(new Grid("/home/marcin/Downloads/test.txt"));
+        grids.getCurrent().resize(2, 2, -2, -2);
         updateCanvas();
-        */
+
     }
 
     public void prevGen() {
@@ -95,5 +95,23 @@ public class Manager {
 
     public void clear() {
         newGrid(grids.getCurrent().getWidth() + "", grids.getCurrent().getHeight() + "");
+    }
+
+    public void resizeGrid(String nn, String ee, String ss, String ww) {
+        int n, e, s, w;
+        try {
+            n = Integer.parseInt(nn);
+            e = Integer.parseInt(ee);
+            s = Integer.parseInt(ss);
+            w = Integer.parseInt(ww);
+            if (grids.getCurrent().getWidth() + e + w < 1 || grids.getCurrent().getHeight() + n + s < 1) {
+                notify("Grid dimensions must be positive.", 5);
+            } else {
+                grids.getCurrent().resize(n, e, s, w);
+                updateCanvas();
+            }
+        } catch (NumberFormatException eee) {
+            notify("Grid dimensions must be integers.", 5);
+        }
     }
 }

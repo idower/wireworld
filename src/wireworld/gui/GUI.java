@@ -5,10 +5,7 @@ import wireworld.Manager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -59,6 +56,18 @@ public class GUI extends JFrame {
     private MyTextField txtPanelSavePath;
     private MyButton btnPanelSaveConfirm;
     private MyButton btnPanelSaveCancel;
+
+    private JPanel panelResize;
+    private MyLabel labelPanelResizeN;
+    private MyLabel labelPanelResizeE;
+    private MyLabel labelPanelResizeS;
+    private MyLabel labelPanelResizeW;
+    private MyTextField txtPanelResizeN;
+    private MyTextField txtPanelResizeE;
+    private MyTextField txtPanelResizeS;
+    private MyTextField txtPanelResizeW;
+    private MyButton btnPanelResizeConfirm;
+    private MyButton btnPanelResizeCancel;
 
     public GUI() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -235,15 +244,22 @@ public class GUI extends JFrame {
         labelPanelMain3.setHorizontalAlignment(JTextField.CENTER);
         panelMain3.add(labelPanelMain3);
         btnPanelMainPrevGen = new MyButton("Prev");
-        btnPanelMainPrevGen.setPreferredSize(new Dimension(65, 25));
+        btnPanelMainPrevGen.setPreferredSize(new Dimension(85, 25));
         btnPanelMainPrevGen.addActionListener(actionEvent -> Manager.getInstance().prevGen());
         panelMain3.add(btnPanelMainPrevGen);
-        btnPanelMainPlayGen = new MyButton("Play/Pause");
-        btnPanelMainPlayGen.setPreferredSize(new Dimension(100, 25));
-        btnPanelMainPlayGen.addActionListener(actionEvent -> Manager.getInstance().togglePlay());
+        btnPanelMainPlayGen = new MyButton("Play");
+        btnPanelMainPlayGen.setPreferredSize(new Dimension(85, 25));
+        btnPanelMainPlayGen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if (btnPanelMainPlayGen.getText().equals("Play")) btnPanelMainPlayGen.setText("Pause");
+                else btnPanelMainPlayGen.setText("Play");
+                Manager.getInstance().togglePlay();
+            }
+        });
         panelMain3.add(btnPanelMainPlayGen);
         btnPanelMainNextGen = new MyButton("Next");
-        btnPanelMainNextGen.setPreferredSize(new Dimension(65, 25));
+        btnPanelMainNextGen.setPreferredSize(new Dimension(85, 25));
         btnPanelMainNextGen.addActionListener(actionEvent -> Manager.getInstance().nextGen());
         panelMain3.add(btnPanelMainNextGen);
 
@@ -342,6 +358,62 @@ public class GUI extends JFrame {
             panelMain.setVisible(false);
             panelSave.setVisible(true);
         });
+
+
+        // panelResize
+        panelResize = new JPanel();
+        panelResize.setVisible(false);
+        panelResize.setBackground(Const.color1);
+        panelResize.setLayout(null);
+        panelResize.setBounds(0, 0, 300, 1000);
+        panelRight.add(panelResize);
+        labelPanelResizeN = new MyLabel("N", 12);
+        labelPanelResizeN.setBounds(135, 40, 30, 25);
+        labelPanelResizeN.setHorizontalAlignment(JLabel.CENTER);
+        panelResize.add(labelPanelResizeN);
+        labelPanelResizeE = new MyLabel("E", 12);
+        labelPanelResizeE.setBounds(225, 85, 30, 20);
+        panelResize.add(labelPanelResizeE);
+        labelPanelResizeS = new MyLabel("S", 12);
+        labelPanelResizeS.setBounds(135, 130, 30, 25);
+        labelPanelResizeS.setHorizontalAlignment(JLabel.CENTER);
+        panelResize.add(labelPanelResizeS);
+        labelPanelResizeW = new MyLabel("W", 12);
+        labelPanelResizeW.setBounds(45, 85, 30, 20);
+        labelPanelResizeW.setHorizontalAlignment(JLabel.TRAILING);
+        panelResize.add(labelPanelResizeW);
+        txtPanelResizeN = new MyTextField();
+        txtPanelResizeN.setBounds(125, 60, 50, 25);
+        txtPanelResizeN.setHorizontalAlignment(JTextField.CENTER);
+        panelResize.add(txtPanelResizeN);
+        txtPanelResizeE = new MyTextField();
+        txtPanelResizeE.setBounds(175, 85, 50, 25);
+        txtPanelResizeE.setHorizontalAlignment(JTextField.CENTER);
+        panelResize.add(txtPanelResizeE);
+        txtPanelResizeS = new MyTextField();
+        txtPanelResizeS.setBounds(125, 110, 50, 25);
+        txtPanelResizeS.setHorizontalAlignment(JTextField.CENTER);
+        panelResize.add(txtPanelResizeS);
+        txtPanelResizeW = new MyTextField();
+        txtPanelResizeW.setBounds(75, 85, 50, 25);
+        txtPanelResizeW.setHorizontalAlignment(JTextField.CENTER);
+        panelResize.add(txtPanelResizeW);
+        btnPanelResizeConfirm = new MyButton("Resize");
+        btnPanelResizeConfirm.setBounds(45, 170, 100, 25);
+        btnPanelResizeConfirm.addActionListener(actionEvent -> Manager.getInstance().resizeGrid(txtPanelResizeN.getText(), txtPanelResizeE.getText(), txtPanelResizeS.getText(), txtPanelResizeW.getText()));
+        panelResize.add(btnPanelResizeConfirm);
+        btnPanelResizeCancel = new MyButton("Cancel");
+        btnPanelResizeCancel.setBounds(155, 170, 100, 25);
+        panelResize.add(btnPanelResizeCancel);
+        btnPanelResizeCancel.addActionListener(actionEvent -> {
+            panelResize.setVisible(false);
+            panelMain.setVisible(true);
+        });
+        btnPanelMainResize.addActionListener(actionEvent -> {
+            panelMain.setVisible(false);
+            panelResize.setVisible(true);
+        });
+
 
         // resize components on window resize
         addComponentListener(new ComponentAdapter() {

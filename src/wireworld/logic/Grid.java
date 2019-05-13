@@ -111,4 +111,19 @@ public class Grid {
         cells[x][y] = state;
     }
 
+    public void resize(int n, int e, int s, int w) {
+        int nWidth = width + e + w;
+        int nHeight = height + n + s;
+        int[][] nCells = new int[nWidth][nHeight];
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                if (x + w >= 0 && y + n >= 0 && x + w < nWidth && y + n < nHeight)
+                    nCells[x + w][y + n] = cells[x][y];
+            }
+        }
+        width = nWidth;
+        height = nHeight;
+        cells = nCells;
+    }
+
 }

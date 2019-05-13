@@ -1,4 +1,7 @@
-package wireworld.gui;
+package wireworld.threads;
+
+import wireworld.gui.GUI;
+import wireworld.gui.MyNotification;
 
 import java.awt.*;
 import java.util.ArrayList;

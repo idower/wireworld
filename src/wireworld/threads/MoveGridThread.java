@@ -1,22 +1,34 @@
-package wireworld.logic;
+package wireworld.threads;
 
 import wireworld.Manager;
+import wireworld.gui.MyCanvas;
 
-public class PlayThread implements Runnable {
+import java.awt.*;
+
+public class MoveGridThread implements Runnable {
 
     private boolean running = false;
     private Thread thread;
     private int sleepTime = 17;
+    private MyCanvas c;
 
-    public PlayThread() {
-
+    public MoveGridThread(MyCanvas c) {
+        this.c = c;
     }
 
     public void run() {
+        Point mp = c.getMousePosition();
+        Point mp2;
         while (running) {
             try {
                 Thread.sleep(sleepTime);
-                Manager.getInstance().nextGen();
+                mp2 = c.getMousePosition();
+                if (mp.x != mp2.x || mp.y != mp2.y) {
+                    c.setOffsetX(c.getOffsetX() - mp.x + mp2.x);
+                    c.setOffsetY(c.getOffsetY() - mp.y + mp2.y);
+                    c.update();
+                }
+                mp = mp2;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -41,5 +53,6 @@ public class PlayThread implements Runnable {
     public boolean isRunning() {
         return running;
     }
+
 
 }
