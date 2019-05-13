@@ -31,6 +31,9 @@ public class GUI extends JFrame {
     private MyLabel labelPanelMain212;
     private MyLabel labelPanelMain213;
     private MyLabel labelPanelMain214;
+    private JPanel panelMain22;
+    private MyLabel labelPanelMain221;
+    private MyLabel labelPanelMain222;
     private JPanel panelMain3;
     private MyLabel labelPanelMain3;
     private MyButton btnPanelMainPrevGen;
@@ -98,6 +101,31 @@ public class GUI extends JFrame {
         // siwthc modes
         btnPanelMainSwitchModes = new MyButton("Switch to Game of Life");
         btnPanelMainSwitchModes.setBounds(100, 10, 190, 25);
+        btnPanelMainSwitchModes.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                int mode = Manager.getInstance().getMode();
+                if (mode == 0) {
+                    Manager.getInstance().switchModes(1);
+                    btnPanelMainSwitchModes.setText("Switch to Wireworld");
+                    labelsSetDefaultIcons();
+                    canvas.setMouseMode(0);
+                    canvas.setOffsetX(0);
+                    canvas.setOffsetY(0);
+                    panelMain21.setVisible(false);
+                    panelMain22.setVisible(true);
+                } else if (mode == 1) {
+                    Manager.getInstance().switchModes(0);
+                    btnPanelMainSwitchModes.setText("Switch to Game of Life");
+                    labelsSetDefaultIcons();
+                    canvas.setMouseMode(0);
+                    canvas.setOffsetX(0);
+                    canvas.setOffsetY(0);
+                    panelMain22.setVisible(false);
+                    panelMain21.setVisible(true);
+                }
+            }
+        });
         panelMain.add(btnPanelMainSwitchModes);
 
         // new / load / save
@@ -231,7 +259,51 @@ public class GUI extends JFrame {
             }
         });
         panelMain21.add(labelPanelMain214);
-
+        panelMain22 = new JPanel();
+        panelMain22.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 8));
+        panelMain22.setBackground(Const.color1);
+        panelMain2.add(panelMain22);
+        labelPanelMain221 = new MyLabel("Dead", 9);
+        labelPanelMain221.setPreferredSize(new Dimension(50, 40));
+        labelPanelMain221.setIcon(createImage(Color.BLACK, new Dimension(24, 24)));
+        labelPanelMain221.setHorizontalTextPosition(JLabel.CENTER);
+        labelPanelMain221.setVerticalTextPosition(JLabel.BOTTOM);
+        labelPanelMain221.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                super.mouseClicked(mouseEvent);
+                labelsSetDefaultIcons();
+                if (canvas.getMouseMode() == 1 && canvas.getWhatToDraw() == 0) {
+                    canvas.setMouseMode(0);
+                } else {
+                    canvas.setMouseMode(1);
+                    canvas.setWhatToDraw(0);
+                    labelPanelMain221.setIcon(createImageActive(Color.BLACK, new Dimension(24, 24)));
+                }
+            }
+        });
+        panelMain22.add(labelPanelMain221);
+        labelPanelMain222 = new MyLabel("Alive", 9);
+        labelPanelMain222.setPreferredSize(new Dimension(50, 40));
+        labelPanelMain222.setIcon(createImage(Color.WHITE, new Dimension(24, 24)));
+        labelPanelMain222.setHorizontalTextPosition(JLabel.CENTER);
+        labelPanelMain222.setVerticalTextPosition(JLabel.BOTTOM);
+        labelPanelMain222.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                super.mouseClicked(mouseEvent);
+                labelsSetDefaultIcons();
+                if (canvas.getMouseMode() == 1 && canvas.getWhatToDraw() == 1) {
+                    canvas.setMouseMode(0);
+                } else {
+                    canvas.setMouseMode(1);
+                    canvas.setWhatToDraw(1);
+                    labelPanelMain222.setIcon(createImageActive(Color.WHITE, new Dimension(24, 24)));
+                }
+            }
+        });
+        panelMain22.add(labelPanelMain222);
+        panelMain22.setVisible(false);
 
         // prev gen / play / next gen
         panelMain3 = new JPanel();
@@ -431,6 +503,8 @@ public class GUI extends JFrame {
         labelPanelMain212.setIcon(createImage(Color.ORANGE, new Dimension(24, 24)));
         labelPanelMain213.setIcon(createImage(Color.BLUE, new Dimension(24, 24)));
         labelPanelMain214.setIcon(createImage(Color.BLACK, new Dimension(24, 24)));
+        labelPanelMain221.setIcon(createImage(Color.BLACK, new Dimension(24, 24)));
+        labelPanelMain222.setIcon(createImage(Color.WHITE, new Dimension(24, 24)));
     }
 
     public static Icon createImage(Color c, Dimension size) {

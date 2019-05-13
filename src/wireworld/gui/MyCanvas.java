@@ -1,5 +1,6 @@
 package wireworld.gui;
 
+import wireworld.Manager;
 import wireworld.logic.Grid;
 import wireworld.threads.MoveGridThread;
 import wireworld.threads.PaintThread;
@@ -39,7 +40,7 @@ public class MyCanvas extends JPanel {
                 super.mousePressed(mouseEvent);
                 if (mouseMode == 0) {
                     mgt.start();
-                } else if (mouseMode == 1){
+                } else if (mouseMode == 1) {
                     pt.start();
                 }
             }
@@ -88,19 +89,30 @@ public class MyCanvas extends JPanel {
         BufferedImage img = new BufferedImage(grid.getWidth(), grid.getHeight(), BufferedImage.TYPE_INT_RGB);
         for (int x = 0; x < grid.getWidth(); x++)
             for (int y = 0; y < grid.getHeight(); y++) {
-                switch (grid.getCell(x, y)) {
-                    case 0:
-                        img.setRGB(x, y, Color.WHITE.getRGB());
-                        break;
-                    case 1:
-                        img.setRGB(x, y, Color.ORANGE.getRGB());
-                        break;
-                    case 2:
-                        img.setRGB(x, y, Color.BLUE.getRGB());
-                        break;
-                    case 3:
-                        img.setRGB(x, y, Color.BLACK.getRGB());
-                        break;
+                if (Manager.getInstance().getMode() == 0) {
+                    switch (grid.getCell(x, y)) {
+                        case 0:
+                            img.setRGB(x, y, Color.WHITE.getRGB());
+                            break;
+                        case 1:
+                            img.setRGB(x, y, Color.ORANGE.getRGB());
+                            break;
+                        case 2:
+                            img.setRGB(x, y, Color.BLUE.getRGB());
+                            break;
+                        case 3:
+                            img.setRGB(x, y, Color.BLACK.getRGB());
+                            break;
+                    }
+                } else if (Manager.getInstance().getMode() == 1) {
+                    switch (grid.getCell(x, y)) {
+                        case 0:
+                            img.setRGB(x, y, Color.BLACK.getRGB());
+                            break;
+                        case 1:
+                            img.setRGB(x, y, Color.WHITE.getRGB());
+                            break;
+                    }
                 }
             }
         currentFrame = img;

@@ -14,6 +14,7 @@ public class Manager {
     private GridList grids;
     private PlayThread pt;
     private MyNotificationThread mnt;
+    private int mode = 0; // 0 - wire // 1 - GoL //
 
     public static void init() {
         instance = new Manager();
@@ -33,11 +34,6 @@ public class Manager {
         grids = new GridList();
         pt = new PlayThread();
         mnt = new MyNotificationThread(gui);
-
-        grids.add(new Grid("/home/marcin/Downloads/test.txt"));
-        grids.getCurrent().resize(2, 2, -2, -2);
-        updateCanvas();
-
     }
 
     public void prevGen() {
@@ -100,6 +96,10 @@ public class Manager {
     public void resizeGrid(String nn, String ee, String ss, String ww) {
         int n, e, s, w;
         try {
+            if (nn.equals("")) nn = "0";
+            if (ee.equals("")) ee = "0";
+            if (ss.equals("")) ss = "0";
+            if (ww.equals("")) ww = "0";
             n = Integer.parseInt(nn);
             e = Integer.parseInt(ee);
             s = Integer.parseInt(ss);
@@ -113,5 +113,17 @@ public class Manager {
         } catch (NumberFormatException eee) {
             notify("Grid dimensions must be integers.", 5);
         }
+    }
+
+    public void switchModes(int i) {
+        mode = i;
+        Grid g = new Grid(5, 5);
+        grids = new GridList();
+        grids.add(g);
+        updateCanvas();
+    }
+
+    public int getMode() {
+        return mode;
     }
 }

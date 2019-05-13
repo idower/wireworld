@@ -6,7 +6,7 @@ public class PaintThread implements Runnable {
 
     private boolean running = false;
     private Thread thread;
-    private int sleepTime = 17;
+    private int sleepTime = 15;
     private MyCanvas c;
 
     public PaintThread(MyCanvas c) {
