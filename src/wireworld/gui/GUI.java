@@ -2,11 +2,13 @@ package wireworld.gui;
 
 import wireworld.logic.Grid;
 import wireworld.Manager;
+import wireworld.logic.GridList;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class GUI extends JFrame {
@@ -72,6 +74,8 @@ public class GUI extends JFrame {
     private MyButton btnPanelResizeConfirm;
     private MyButton btnPanelResizeCancel;
 
+    private PatternsPanel panelPatterns;
+
     public GUI() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(720, 480));
@@ -101,29 +105,26 @@ public class GUI extends JFrame {
         // siwthc modes
         btnPanelMainSwitchModes = new MyButton("Switch to Game of Life");
         btnPanelMainSwitchModes.setBounds(100, 10, 190, 25);
-        btnPanelMainSwitchModes.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                int mode = Manager.getInstance().getMode();
-                if (mode == 0) {
-                    Manager.getInstance().switchModes(1);
-                    btnPanelMainSwitchModes.setText("Switch to Wireworld");
-                    labelsSetDefaultIcons();
-                    canvas.setMouseMode(0);
-                    canvas.setOffsetX(0);
-                    canvas.setOffsetY(0);
-                    panelMain21.setVisible(false);
-                    panelMain22.setVisible(true);
-                } else if (mode == 1) {
-                    Manager.getInstance().switchModes(0);
-                    btnPanelMainSwitchModes.setText("Switch to Game of Life");
-                    labelsSetDefaultIcons();
-                    canvas.setMouseMode(0);
-                    canvas.setOffsetX(0);
-                    canvas.setOffsetY(0);
-                    panelMain22.setVisible(false);
-                    panelMain21.setVisible(true);
-                }
+        btnPanelMainSwitchModes.addActionListener(actionEvent -> {
+            int mode = Manager.getInstance().getMode();
+            if (mode == 0) {
+                Manager.getInstance().switchModes(1);
+                btnPanelMainSwitchModes.setText("Switch to Wireworld");
+                labelsSetDefaultIcons();
+                canvas.setMouseMode(0);
+                canvas.setOffsetX(0);
+                canvas.setOffsetY(0);
+                panelMain21.setVisible(false);
+                panelMain22.setVisible(true);
+            } else if (mode == 1) {
+                Manager.getInstance().switchModes(0);
+                btnPanelMainSwitchModes.setText("Switch to Game of Life");
+                labelsSetDefaultIcons();
+                canvas.setMouseMode(0);
+                canvas.setOffsetX(0);
+                canvas.setOffsetY(0);
+                panelMain22.setVisible(false);
+                panelMain21.setVisible(true);
             }
         });
         panelMain.add(btnPanelMainSwitchModes);
@@ -321,13 +322,10 @@ public class GUI extends JFrame {
         panelMain3.add(btnPanelMainPrevGen);
         btnPanelMainPlayGen = new MyButton("Play");
         btnPanelMainPlayGen.setPreferredSize(new Dimension(85, 25));
-        btnPanelMainPlayGen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if (btnPanelMainPlayGen.getText().equals("Play")) btnPanelMainPlayGen.setText("Pause");
-                else btnPanelMainPlayGen.setText("Play");
-                Manager.getInstance().togglePlay();
-            }
+        btnPanelMainPlayGen.addActionListener(actionEvent -> {
+            if (btnPanelMainPlayGen.getText().equals("Play")) btnPanelMainPlayGen.setText("Pause");
+            else btnPanelMainPlayGen.setText("Play");
+            Manager.getInstance().togglePlay();
         });
         panelMain3.add(btnPanelMainPlayGen);
         btnPanelMainNextGen = new MyButton("Next");
@@ -487,6 +485,16 @@ public class GUI extends JFrame {
         });
 
 
+        // panelPatterns
+        panelPatterns = new PatternsPanel(panelMain);
+        panelPatterns.setVisible(false);
+        panelPatterns.setBounds(0, 0, 300, 1000);
+        panelRight.add(panelPatterns);
+        btnPanelMainPatterns.addActionListener(actionEvent -> {
+            panelMain.setVisible(false);
+            panelPatterns.setVisible(true);
+        });
+
         // resize components on window resize
         addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent componentEvent) {
@@ -536,5 +544,10 @@ public class GUI extends JFrame {
     public void resizeGUI() {
         canvas.setBounds(0, 0, getContentPane().getWidth() - 300, getContentPane().getHeight());
         panelRight.setBounds(getContentPane().getWidth() - 300, 0, 300, getContentPane().getHeight());
+        panelPatterns.resizee(getContentPane().getWidth(), getContentPane().getHeight());
+    }
+
+    public void updatePatternsPanel(ArrayList<Grid> patterns) {
+        panelPatterns.updatePatterns(this, patterns);
     }
 }

@@ -20,8 +20,9 @@ public class MyCanvas extends JPanel {
     private int scale = 4;
     private MoveGridThread mgt;
     private PaintThread pt;
-    private int mouseMode = 0;
+    private int mouseMode = 0; // 0 nothing // 1 draw cells // 2 draw patterns
     private int whatToDraw = 0;
+    private Grid patternToDraw;
 
     MyCanvas() {
         super();
@@ -55,13 +56,17 @@ public class MyCanvas extends JPanel {
                 }
             }
 
-            /*
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
                 super.mouseClicked(mouseEvent);
-                if (mouseMode == 0) {
+                if (mouseMode != 2) {
                     return;
                 }
+                if (mouseEvent.getButton() == MouseEvent.BUTTON3) {
+                    setMouseMode(0);
+                    return;
+                }
+                mouseMode = 0;
                 int x = mouseEvent.getX() - (getWidth() / 2 - currentFrame.getWidth() * scale / 2 + offsetX);
                 if (x < 0) return;
                 x /= scale;
@@ -70,10 +75,21 @@ public class MyCanvas extends JPanel {
                 if (y < 0) return;
                 y /= scale;
                 if (y >= currentGrid.getHeight()) return;
-                currentGrid.changeCell(x, y, whatToDraw);
+                boolean fail = false;
+                for (int xx = 0; xx < patternToDraw.getWidth(); xx++) {
+                    for (int yy = 0; yy < patternToDraw.getHeight(); yy++) {
+                        try {
+                            currentGrid.changeCell(x + xx, y + yy, patternToDraw.getCell(xx, yy));
+                        } catch (ArrayIndexOutOfBoundsException e) {
+                            fail = true;
+                        }
+
+                    }
+                }
+                if (fail)
+                    Manager.getInstance().notify("Couldn't draw entire pattern.", 8);
                 update();
             }
-             */
 
         });
         setDoubleBuffered(true);
@@ -86,36 +102,7 @@ public class MyCanvas extends JPanel {
     void update(Grid grid) {
         if (grid == null || grid.getWidth() <= 0 || grid.getHeight() <= 0) return;
         currentGrid = grid;
-        BufferedImage img = new BufferedImage(grid.getWidth(), grid.getHeight(), BufferedImage.TYPE_INT_RGB);
-        for (int x = 0; x < grid.getWidth(); x++)
-            for (int y = 0; y < grid.getHeight(); y++) {
-                if (Manager.getInstance().getMode() == 0) {
-                    switch (grid.getCell(x, y)) {
-                        case 0:
-                            img.setRGB(x, y, Color.WHITE.getRGB());
-                            break;
-                        case 1:
-                            img.setRGB(x, y, Color.ORANGE.getRGB());
-                            break;
-                        case 2:
-                            img.setRGB(x, y, Color.BLUE.getRGB());
-                            break;
-                        case 3:
-                            img.setRGB(x, y, Color.BLACK.getRGB());
-                            break;
-                    }
-                } else if (Manager.getInstance().getMode() == 1) {
-                    switch (grid.getCell(x, y)) {
-                        case 0:
-                            img.setRGB(x, y, Color.BLACK.getRGB());
-                            break;
-                        case 1:
-                            img.setRGB(x, y, Color.WHITE.getRGB());
-                            break;
-                    }
-                }
-            }
-        currentFrame = img;
+        currentFrame = currentGrid.getImage();
         repaint();
     }
 
@@ -177,4 +164,7 @@ public class MyCanvas extends JPanel {
         return currentGrid;
     }
 
+    public void setPatternToDraw(Grid patternToDraw) {
+        this.patternToDraw = patternToDraw;
+    }
 }

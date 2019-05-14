@@ -1,17 +1,21 @@
 package wireworld;
 
+import wireworld.gui.Const;
 import wireworld.gui.GUI;
 import wireworld.gui.MyNotification;
-import wireworld.threads.MyNotificationThread;
 import wireworld.logic.Grid;
 import wireworld.logic.GridList;
+import wireworld.threads.MyNotificationThread;
 import wireworld.threads.PlayThread;
+
+import java.util.ArrayList;
 
 public class Manager {
 
     private static Manager instance;
     private GUI gui;
     private GridList grids;
+    private ArrayList<Grid> patterns;
     private PlayThread pt;
     private MyNotificationThread mnt;
     private int mode = 0; // 0 - wire // 1 - GoL //
@@ -32,8 +36,10 @@ public class Manager {
     private void createManager() {
         gui = new GUI();
         grids = new GridList();
+        patterns = new GridList();
         pt = new PlayThread();
         mnt = new MyNotificationThread(gui);
+        switchModes(0);
     }
 
     public void prevGen() {
@@ -53,6 +59,10 @@ public class Manager {
 
     public void updateCanvas() {
         gui.updateCanvas(grids.getCurrent());
+    }
+
+    public void updatePatternsPanel() {
+        gui.updatePatternsPanel(patterns);
     }
 
     public void loadGrid(String path) {
@@ -96,14 +106,10 @@ public class Manager {
     public void resizeGrid(String nn, String ee, String ss, String ww) {
         int n, e, s, w;
         try {
-            if (nn.equals("")) nn = "0";
-            if (ee.equals("")) ee = "0";
-            if (ss.equals("")) ss = "0";
-            if (ww.equals("")) ww = "0";
-            n = Integer.parseInt(nn);
-            e = Integer.parseInt(ee);
-            s = Integer.parseInt(ss);
-            w = Integer.parseInt(ww);
+            n = nn.equals("") ? 0 : Integer.parseInt(nn);
+            e = ee.equals("") ? 0 : Integer.parseInt(ee);
+            s = ss.equals("") ? 0 : Integer.parseInt(ss);
+            w = ww.equals("") ? 0 : Integer.parseInt(ww);
             if (grids.getCurrent().getWidth() + e + w < 1 || grids.getCurrent().getHeight() + n + s < 1) {
                 notify("Grid dimensions must be positive.", 5);
             } else {
@@ -117,7 +123,14 @@ public class Manager {
 
     public void switchModes(int i) {
         mode = i;
-        Grid g = new Grid(5, 5);
+        if (mode == 0) {
+            patterns = Const.wireworldPatterns;
+            updatePatternsPanel();
+        } else if(mode == 1) {
+            patterns = Const.gameOfLifePatterns;
+            updatePatternsPanel();
+        }
+        Grid g = new Grid(16, 16);
         grids = new GridList();
         grids.add(g);
         updateCanvas();
@@ -125,5 +138,9 @@ public class Manager {
 
     public int getMode() {
         return mode;
+    }
+
+    public ArrayList<Grid> getPatterns() {
+        return patterns;
     }
 }

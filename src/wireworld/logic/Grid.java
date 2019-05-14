@@ -2,7 +2,10 @@ package wireworld.logic;
 
 import wireworld.Manager;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
+import java.net.URISyntaxException;
 import java.util.Scanner;
 
 public class Grid {
@@ -10,6 +13,7 @@ public class Grid {
     private int width, height;
     private int[][] cells;
     private boolean isGood = false;
+    private String name;
 
     public Grid(int width, int height) {
         this.width = width;
@@ -18,33 +22,51 @@ public class Grid {
     }
 
     public Grid(String path) {
-        load(path);
+        load(new File(path));
     }
 
-    public void load(String path) {
+    public Grid(String path, String name) {
+        File f = null;
         try {
-            int mode = Manager.getInstance().getMode();
-            Scanner in = new Scanner(new File(path));
+            f = new File(this.getClass().getResource(path).getFile());
+        } catch (NullPointerException e) {
+            isGood = false;
+            return;
+        }
+        load(f);
+        this.name = name;
+    }
+
+    public void load(File f) {
+        int mode;
+        try {
+            mode = Manager.getInstance().getMode();
+        } catch (NullPointerException e) {
+            mode = -1;
+        }
+        try {
+            Scanner in = new Scanner(f);
             width = in.nextInt();
+            System.out.println(width);
             height = in.nextInt();
             cells = new int[width][height];
             for (int y = 0; y < height; y++)
                 for (int x = 0; x < width; x++) {
                     cells[x][y] = in.nextInt();
-
-                    if( mode == 1 && !(cells[x][y] == 0 || cells[x][y] == 1)) {
+                    if (mode == 1 && !(cells[x][y] == 0 || cells[x][y] == 1)) {
                         Manager.getInstance().notify("Wrong file format.", 6);
                         return;
-                    } else if( mode == 0 && !(cells[x][y] == 0 || cells[x][y] == 1 || cells[x][y] == 2 || cells[x][y] == 3)) {
+                    } else if (mode == 0 && !(cells[x][y] == 0 || cells[x][y] == 1 || cells[x][y] == 2 || cells[x][y] == 3)) {
                         Manager.getInstance().notify("Wrong file format.", 6);
                         return;
                     }
-
                 }
             isGood = true;
-            Manager.getInstance().notify("Succesfuly loaded file " + path, 5);
+            if (mode != -1)
+                Manager.getInstance().notify("Succesfuly loaded file " + f.getAbsolutePath(), 5);
         } catch (FileNotFoundException e) {
-            Manager.getInstance().notify("Couldn't find file " + path, 5);
+            if (mode != -1)
+                Manager.getInstance().notify("Couldn't find file " + f.getAbsolutePath(), 5);
         }
     }
 
@@ -148,6 +170,43 @@ public class Grid {
         width = nWidth;
         height = nHeight;
         cells = nCells;
+    }
+
+    public BufferedImage getImage() {
+        BufferedImage img = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
+        for (int x = 0; x < getWidth(); x++)
+            for (int y = 0; y < getHeight(); y++) {
+                if (Manager.getInstance().getMode() == 0) {
+                    switch (getCell(x, y)) {
+                        case 0:
+                            img.setRGB(x, y, Color.WHITE.getRGB());
+                            break;
+                        case 1:
+                            img.setRGB(x, y, Color.ORANGE.getRGB());
+                            break;
+                        case 2:
+                            img.setRGB(x, y, Color.BLUE.getRGB());
+                            break;
+                        case 3:
+                            img.setRGB(x, y, Color.BLACK.getRGB());
+                            break;
+                    }
+                } else if (Manager.getInstance().getMode() == 1) {
+                    switch (getCell(x, y)) {
+                        case 0:
+                            img.setRGB(x, y, Color.BLACK.getRGB());
+                            break;
+                        case 1:
+                            img.setRGB(x, y, Color.WHITE.getRGB());
+                            break;
+                    }
+                }
+            }
+        return img;
+    }
+
+    public String getName() {
+        return name;
     }
 
 }

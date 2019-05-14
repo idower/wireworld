@@ -25,18 +25,24 @@ public class MyNotificationThread implements Runnable {
         while (running) {
             try {
                 g.getCanvas().removeAll();
-                int y = g.getCanvas().getHeight() - 30;
+                int y = g.getCanvas().getHeight() - 35;
                 for (MyNotification n : notifications) {
+                    if (n.getTime() < 601) {
+                        if (n.getBackground().getAlpha() >= 20)
+                            n.setBackground(new Color(n.getBackground().getRed(), n.getBackground().getGreen(), n.getBackground().getBlue(), n.getBackground().getAlpha() - 20));
+                    } else if (n.getBackground().getAlpha() < 235) {
+                        n.setBackground(new Color(n.getBackground().getRed(), n.getBackground().getGreen(), n.getBackground().getBlue(), n.getBackground().getAlpha() + 20));
+                    }
                     n.resize();
-                    n.setBounds(10, y, g.getCanvas().getWidth() - 20, 20);
-                    y -= 30;
+                    n.setBounds(10, y, g.getCanvas().getWidth() - 20, 25);
+                    y -= 35;
                     g.getCanvas().add(n);
-                    n.setTime(n.getTime() - 20);
+                    n.setTime(n.getTime() - 50);
                     if (n.getTime() < 1) removeNotifications.add(n);
                 }
                 g.repaint();
                 notifications.removeAll(removeNotifications);
-                Thread.sleep(20);
+                Thread.sleep(50);
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
