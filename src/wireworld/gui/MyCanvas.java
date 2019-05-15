@@ -17,7 +17,7 @@ public class MyCanvas extends JPanel {
     private BufferedImage currentFrame;
     private int offsetX = 0;
     private int offsetY = 0;
-    private int scale = 4;
+    private int scale = 10;
     private MoveGridThread mgt;
     private PaintThread pt;
     private int mouseMode = 0; // 0 nothing // 1 draw cells // 2 draw patterns
@@ -30,7 +30,8 @@ public class MyCanvas extends JPanel {
         mgt = new MoveGridThread(this);
         pt = new PaintThread(this);
         addMouseWheelListener(mouseWheelEvent -> {
-            scale -= mouseWheelEvent.getWheelRotation();
+            int wr = mouseWheelEvent.getWheelRotation();
+            scale -= wr;
             if (scale < 1) scale = 1;
             update();
         });
@@ -115,6 +116,15 @@ public class MyCanvas extends JPanel {
             int x = getWidth() / 2 - currentFrame.getWidth() * scale / 2;
             int y = getHeight() / 2 - currentFrame.getHeight() * scale / 2;
             g2d.drawImage(currentFrame, x + offsetX, y + offsetY, currentFrame.getWidth() * scale, currentFrame.getHeight() * scale, this);
+            if (scale > 5) {
+                g2d.setColor(new Color(127, 127, 127));
+                for (int xx = 0; xx <= currentGrid.getWidth(); xx++) {
+                    g2d.drawLine(x + offsetX + xx * scale, y + offsetY, x + offsetX + xx * scale, y + offsetY + currentFrame.getHeight() * scale);
+                }
+                for (int yy = 0; yy <= currentGrid.getHeight(); yy++) {
+                    g2d.drawLine(x + offsetX, y + offsetY + yy * scale, x + offsetX + currentFrame.getWidth() * scale, y + offsetY + yy * scale);
+                }
+            }
             g2d.dispose();
         }
         Toolkit.getDefaultToolkit().sync();

@@ -31,11 +31,6 @@ public class DrawPatternsThread implements Runnable {
 
     public void stop() {
         running = false;
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
 }

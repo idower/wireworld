@@ -36,16 +36,12 @@ public class PaintThread implements Runnable {
     public void start() {
         running = true;
         thread = new Thread(this);
+        thread.setName(".PaintThread");
         thread.start();
     }
 
     public void stop() {
         running = false;
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
 }

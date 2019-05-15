@@ -20,6 +20,7 @@ public class PatternsPanel extends JPanel {
     private ArrayList<PatternsPanelElement> ppel;
 
     public PatternsPanel(JPanel panelMain) {
+        ppel = new ArrayList<>();
         setBackground(Const.color1);
         setLayout(null);
         panelTop = new JPanel();

@@ -7,34 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e66c7b2-7063-43ea-ab7c-d97d3ea35e22" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/wireworld/gui/PatternsPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/wireworld/gui/PatternsPanelElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/wireworld/threads/DrawPatternsThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/Const.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/MyCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/MyCanvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/MyNotification.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/gui/MyNotification.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/logic/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/logic/Grid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/threads/MyNotificationThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WireworldThisTimeFinalVersion/wireworld/threads/MyNotificationThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/wireworld/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/wireworld/gui/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/gui/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/wireworld/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/gui/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/wireworld/gui/MyCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/gui/MyCanvas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/wireworld/gui/MyNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/gui/MyNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/wireworld/logic/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/logic/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/wireworld/gui/PatternsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/gui/PatternsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/wireworld/threads/DrawPatternsThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/threads/DrawPatternsThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/wireworld/threads/MoveGridThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/threads/MoveGridThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/wireworld/threads/MyNotificationThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/threads/MyNotificationThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/wireworld/threads/PaintThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/threads/PaintThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/wireworld/threads/PlayThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/wireworld/threads/PlayThread.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,66 +32,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/wireworld/gui/MyNotification.java">
+        <entry file="file://$PROJECT_DIR$/src/wireworld/gui/MyCanvas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="22" />
+            <state relative-caret-position="288">
+              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#673#674#0" expanded="true" />
-                <element signature="e#735#736#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/wireworld/threads/MyNotificationThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2283#2284#0" expanded="true" />
-                <element signature="e#2319#2320#0" expanded="true" />
+                <element signature="e#3340#3341#0" expanded="true" />
+                <element signature="e#4784#4785#0" expanded="true" />
+                <element signature="e#4848#4849#0" expanded="true" />
+                <element signature="e#4909#4910#0" expanded="true" />
+                <element signature="e#4970#4971#0" expanded="true" />
+                <element signature="e#5031#5032#0" expanded="true" />
+                <element signature="e#5094#5095#0" expanded="true" />
+                <element signature="e#5152#5153#0" expanded="true" />
+                <element signature="e#5219#5220#0" expanded="true" />
+                <element signature="e#5300#5301#0" expanded="true" />
+                <element signature="e#5357#5358#0" expanded="true" />
+                <element signature="e#5427#5428#0" expanded="true" />
+                <element signature="e#5533#5534#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/wireworld/gui/MyCanvas.java">
+        <entry file="file://$PROJECT_DIR$/src/wireworld/gui/PatternsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+            <state relative-caret-position="66">
+              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3128#3129#0" expanded="true" />
-                <element signature="e#3163#3164#0" expanded="true" />
-                <element signature="e#4009#4010#0" expanded="true" />
-                <element signature="e#4036#4037#0" expanded="true" />
-                <element signature="e#4073#4074#0" expanded="true" />
-                <element signature="e#4100#4101#0" expanded="true" />
-                <element signature="e#4131#4132#0" expanded="true" />
-                <element signature="e#4161#4162#0" expanded="true" />
-                <element signature="e#4192#4193#0" expanded="true" />
-                <element signature="e#4222#4223#0" expanded="true" />
-                <element signature="e#4254#4255#0" expanded="true" />
-                <element signature="e#4283#4284#0" expanded="true" />
-                <element signature="e#4316#4317#0" expanded="true" />
-                <element signature="e#4346#4347#0" expanded="true" />
-                <element signature="e#4372#4373#0" expanded="true" />
-                <element signature="e#4404#4405#0" expanded="true" />
-                <element signature="e#4438#4439#0" expanded="true" />
-                <element signature="e#4471#4472#0" expanded="true" />
-                <element signature="e#4517#4518#0" expanded="true" />
-                <element signature="e#4552#4553#0" expanded="true" />
-                <element signature="e#4581#4582#0" expanded="true" />
-                <element signature="e#4609#4610#0" expanded="true" />
-                <element signature="e#4645#4646#0" expanded="true" />
-                <element signature="e#4679#4680#0" expanded="true" />
-                <element signature="e#4735#4736#0" expanded="true" />
-                <element signature="e#4785#4786#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,21 +112,23 @@
         <option value="$PROJECT_DIR$/src/wireworld/gui/MoveGridThread.java" />
         <option value="$PROJECT_DIR$/src/wireworld/logic/PaintThread.java" />
         <option value="$PROJECT_DIR$/src/wireworld/logic/PlayThread.java" />
-        <option value="$PROJECT_DIR$/src/wireworld/threads/PaintThread.java" />
         <option value="$PROJECT_DIR$/src/wireworld/gui/MyPatternsPanel.java" />
         <option value="$PROJECT_DIR$/src/wireworld/threads/FadeThread.java" />
         <option value="$PROJECT_DIR$/src/wireworld/logic/Patterns.java" />
         <option value="$PROJECT_DIR$/src/wireworld/Main.java" />
         <option value="$PROJECT_DIR$/src/wireworld/logic/Grid.java" />
-        <option value="$PROJECT_DIR$/src/wireworld/threads/DrawPatternsThread.java" />
         <option value="$PROJECT_DIR$/src/wireworld/gui/GUI.java" />
         <option value="$PROJECT_DIR$/src/wireworld/gui/PatternsPanelElement.java" />
         <option value="$PROJECT_DIR$/src/wireworld/Manager.java" />
         <option value="$PROJECT_DIR$/src/wireworld/gui/Const.java" />
-        <option value="$PROJECT_DIR$/src/wireworld/gui/PatternsPanel.java" />
         <option value="$PROJECT_DIR$/src/wireworld/gui/MyNotification.java" />
+        <option value="$PROJECT_DIR$/src/wireworld/threads/DrawPatternsThread.java" />
+        <option value="$PROJECT_DIR$/src/wireworld/threads/MoveGridThread.java" />
         <option value="$PROJECT_DIR$/src/wireworld/threads/MyNotificationThread.java" />
+        <option value="$PROJECT_DIR$/src/wireworld/threads/PaintThread.java" />
+        <option value="$PROJECT_DIR$/src/wireworld/threads/PlayThread.java" />
         <option value="$PROJECT_DIR$/src/wireworld/gui/MyCanvas.java" />
+        <option value="$PROJECT_DIR$/src/wireworld/gui/PatternsPanel.java" />
       </list>
     </option>
   </component>
@@ -197,7 +150,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,6 +199,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -342,7 +295,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.50079745" side_tool="true" weight="0.1510574" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49920255" visible="true" weight="0.20015106" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49920255" visible="true" weight="0.2031722" />
       <window_info id="Structure" order="6" sideWeight="0.50079745" side_tool="true" weight="0.1510574" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32854864" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -350,8 +303,8 @@
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50044054" side_tool="true" weight="0.26634768" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32854864" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49955946" visible="true" weight="0.28389156" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.39872408" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49955946" visible="true" weight="0.17065391" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.40350878" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -462,20 +415,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wireworld/logic/Patterns.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wireworld/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wireworld/logic/Patterns.java" />
     <entry file="file://$PROJECT_DIR$/src/wireworld/logic/GridList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -506,32 +446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wireworld/threads/MoveGridThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wireworld/threads/PaintThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wireworld/threads/PlayThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="8" column="37" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/wireworld/gui/PatternsPanelElement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -556,63 +470,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wireworld/Manager.java">
+    <entry file="file://$PROJECT_DIR$/src/wireworld/gui/MyNotification.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="64" column="23" lean-forward="true" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+        <state relative-caret-position="196">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1463#1464#0" expanded="true" />
-            <element signature="e#1512#1513#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/wireworld/threads/DrawPatternsThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wireworld/gui/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="550" column="29" lean-forward="true" selection-start-line="550" selection-start-column="29" selection-end-line="550" selection-end-column="29" />
+        <state relative-caret-position="321">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#24052#24053#0" expanded="true" />
-            <element signature="e#24106#24107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wireworld/gui/PatternsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wireworld/gui/MyNotification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/wireworld/threads/MyNotificationThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="52" />
+        <state relative-caret-position="230">
+          <caret line="55" column="48" lean-forward="true" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2283#2284#0" expanded="true" />
@@ -621,38 +502,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wireworld/gui/MyCanvas.java">
+    <entry file="file://$PROJECT_DIR$/src/wireworld/threads/PaintThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+        <state relative-caret-position="265">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+          <folding>
+            <element signature="e#1319#1320#0" expanded="true" />
+            <element signature="e#1350#1351#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wireworld/threads/PlayThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding>
+            <element signature="e#652#653#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wireworld/gui/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="546" column="22" selection-start-line="546" selection-start-column="22" selection-end-line="546" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3128#3129#0" expanded="true" />
-            <element signature="e#3163#3164#0" expanded="true" />
-            <element signature="e#4009#4010#0" expanded="true" />
-            <element signature="e#4036#4037#0" expanded="true" />
-            <element signature="e#4073#4074#0" expanded="true" />
-            <element signature="e#4100#4101#0" expanded="true" />
-            <element signature="e#4131#4132#0" expanded="true" />
-            <element signature="e#4161#4162#0" expanded="true" />
-            <element signature="e#4192#4193#0" expanded="true" />
-            <element signature="e#4222#4223#0" expanded="true" />
-            <element signature="e#4254#4255#0" expanded="true" />
-            <element signature="e#4283#4284#0" expanded="true" />
-            <element signature="e#4316#4317#0" expanded="true" />
-            <element signature="e#4346#4347#0" expanded="true" />
-            <element signature="e#4372#4373#0" expanded="true" />
-            <element signature="e#4404#4405#0" expanded="true" />
-            <element signature="e#4438#4439#0" expanded="true" />
-            <element signature="e#4471#4472#0" expanded="true" />
-            <element signature="e#4517#4518#0" expanded="true" />
-            <element signature="e#4552#4553#0" expanded="true" />
-            <element signature="e#4581#4582#0" expanded="true" />
-            <element signature="e#4609#4610#0" expanded="true" />
-            <element signature="e#4645#4646#0" expanded="true" />
-            <element signature="e#4679#4680#0" expanded="true" />
-            <element signature="e#4735#4736#0" expanded="true" />
-            <element signature="e#4785#4786#0" expanded="true" />
+            <element signature="e#24052#24053#0" expanded="true" />
+            <element signature="e#24112#24113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wireworld/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wireworld/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wireworld/threads/MoveGridThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1072#1073#0" expanded="true" />
+            <element signature="e#1103#1104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wireworld/gui/MyCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3340#3341#0" expanded="true" />
+            <element signature="e#4784#4785#0" expanded="true" />
+            <element signature="e#4848#4849#0" expanded="true" />
+            <element signature="e#4909#4910#0" expanded="true" />
+            <element signature="e#4970#4971#0" expanded="true" />
+            <element signature="e#5031#5032#0" expanded="true" />
+            <element signature="e#5094#5095#0" expanded="true" />
+            <element signature="e#5152#5153#0" expanded="true" />
+            <element signature="e#5219#5220#0" expanded="true" />
+            <element signature="e#5300#5301#0" expanded="true" />
+            <element signature="e#5357#5358#0" expanded="true" />
+            <element signature="e#5427#5428#0" expanded="true" />
+            <element signature="e#5533#5534#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wireworld/gui/PatternsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

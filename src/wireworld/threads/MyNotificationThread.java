@@ -48,22 +48,13 @@ public class MyNotificationThread implements Runnable {
                 e.printStackTrace();
             }
         }
-        stop();
     }
 
     public void start() {
         running = true;
         thread = new Thread(this);
+        thread.setName(".MyNotificationThread");
         thread.start();
-    }
-
-    public void stop() {
-        running = false;
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public void add(MyNotification n) {

@@ -26,16 +26,12 @@ public class PlayThread implements Runnable {
     public void start() {
         running = true;
         thread = new Thread(this);
+        thread.setName(".PlayThread");
         thread.start();
     }
 
     public void stop() {
         running = false;
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public boolean isRunning() {

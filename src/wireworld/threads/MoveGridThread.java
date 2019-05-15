@@ -38,20 +38,12 @@ public class MoveGridThread implements Runnable {
     public void start() {
         running = true;
         thread = new Thread(this);
+        thread.setName(".MoveGridThread");
         thread.start();
     }
 
     public void stop() {
         running = false;
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean isRunning() {
-        return running;
     }
 
 
